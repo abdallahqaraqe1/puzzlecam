@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PuzzleCam Guide — Eng. Abdallah Qaraqe</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #EDE8DC;
+  font-family: 'Barlow', sans-serif;
+  color: #1a1a1a;
+}
+
+nav {
+  background: #EDE8DC;
+  border-bottom: 1px solid #d4cfc3;
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  color: #C41E1E;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.nav-links a:hover { color: #C41E1E; }
+
+.hero {
+  background: #C41E1E;
+  padding: 64px 40px;
+  color: #EDE8DC;
+}
+
+.hero-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #EDE8DC;
+  opacity: 0.7;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(48px, 8vw, 80px);
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: #EDE8DC;
+  max-width: 800px;
+  margin-bottom: 28px;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 620px;
+  color: #EDE8DC;
+  opacity: 0.9;
+}
+
+.by-line {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.by-line span {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(237,232,220,0.15);
+  border: 1px solid rgba(237,232,220,0.3);
+  color: #EDE8DC;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+.tag:hover { background: rgba(237,232,220,0.25); }
+
+.section {
+  padding: 64px 40px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C41E1E;
+  margin-bottom: 12px;
+}
+
+.section h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 52px);
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-bottom: 20px;
+}
+
+.section p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #3a3a3a;
+  max-width: 640px;
+}
+
+.callout {
+  background: #f5f0e6;
+  border-left: 4px solid #C41E1E;
+  padding: 20px 24px;
+  margin: 32px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.callout p {
+  font-size: 16px;
+  color: #3a3a3a;
+  line-height: 1.6;
+}
+
+.divider { border: none; border-top: 1px solid #d4cfc3; margin: 0 40px; }
+
+.red-section {
+  background: #C41E1E;
+  padding: 64px 40px;
+}
+
+.red-section .section-label { color: #EDE8DC; opacity: 0.7; }
+.red-section h2 { color: #EDE8DC; }
+.red-section p { color: #EDE8DC; opacity: 0.88; }
+
+.steps {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.step-card {
+  background: #EDE8DC;
+  padding: 28px 32px;
+  border-radius: 4px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.step-number {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  color: #C41E1E;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 52px;
+}
+
+.step-content h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 8px;
+}
+
+.step-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #3a3a3a;
+  margin-bottom: 12px;
+}
+
+.code-block {
+  background: #1a1a1a;
+  color: #f5c518;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  padding: 14px 18px;
+  border-radius: 3px;
+  line-height: 1.7;
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.code-block .comment { color: #666; }
+
+.gestures-section {
+  padding: 64px 40px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.gesture-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 28px;
+}
+
+.gesture-table th {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #C41E1E;
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 2px solid #C41E1E;
+}
+
+.gesture-table td {
+  font-size: 15px;
+  padding: 14px 16px;
+  border-bottom: 1px solid #d4cfc3;
+  color: #1a1a1a;
+  line-height: 1.5;
+}
+
+.gesture-table tr:last-child td { border-bottom: none; }
+.gesture-table tr:hover td { background: rgba(196,30,30,0.04); }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-card {
+  background: #EDE8DC;
+  padding: 24px;
+  border-radius: 4px;
+  border-top: 3px solid #C41E1E;
+}
+
+.feature-card h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 17px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #3a3a3a;
+  line-height: 1.55;
+}
+
+.cta-section {
+  background: #1a1a1a;
+  padding: 64px 40px;
+  text-align: center;
+}
+
+.cta-section .section-label { color: #f5c518; }
+
+.cta-section h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(36px, 6vw, 64px);
+  text-transform: uppercase;
+  color: #EDE8DC;
+  line-height: 0.95;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 17px;
+  color: rgba(237,232,220,0.75);
+  max-width: 560px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn:hover { opacity: 0.88; }
+
+.btn-red { background: #C41E1E; color: #EDE8DC; }
+.btn-outline { background: transparent; color: #EDE8DC; border: 1.5px solid rgba(237,232,220,0.4); margin-left: 12px; }
+
+.tag-me {
+  background: #C41E1E;
+  padding: 48px 40px;
+  text-align: center;
+}
+
+.tag-me h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+  text-transform: uppercase;
+  color: #EDE8DC;
+  margin-bottom: 12px;
+}
+
+.tag-me p {
+  font-size: 17px;
+  color: rgba(237,232,220,0.85);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.tag-me strong { color: #EDE8DC; }
+
+footer {
+  background: #EDE8DC;
+  border-top: 1px solid #d4cfc3;
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+footer p {
+  font-size: 13px;
+  color: #888;
+}
+
+footer a {
+  font-size: 13px;
+  color: #C41E1E;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .hero, .section, .red-section, .gestures-section, .cta-section, .tag-me { padding: 48px 20px; }
+  .divider { margin: 0 20px; }
+  .step-card { flex-direction: column; gap: 8px; }
+  .step-number { font-size: 36px; }
+  footer { padding: 24px 20px; }
+  .btn-outline { margin-left: 0; margin-top: 12px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Eng. Abdallah Qaraqe</div>
+  <ul class="nav-links">
+    <li><a href="#how-to-run">How to run</a></li>
+    <li><a href="#gestures">Gestures</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="https://github.com/abdallahqaraqe1/puzzlecam" target="_blank">GitHub</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-label">Free Guide by Eng. Abdallah Qaraqe</div>
+  <h1>PuzzleCam — Gesture Capture</h1>
+  <p>A hand-gesture controlled photobooth puzzle game that runs entirely in your browser. No installation, no backend, no frameworks. Just your hands and a webcam.</p>
+  <div class="by-line">
+    <span>by</span>
+    <a class="tag" href="https://github.com/abdallahqaraqe1" target="_blank">Eng. Abdallah Qaraqe</a>
+    <a class="tag" href="https://github.com/abdallahqaraqe1/puzzlecam" target="_blank">GitHub Repo</a>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<div class="section">
+  <div class="section-label">What is this?</div>
+  <h2>Your hands are the camera</h2>
+  <p>You use your index fingers to frame the photo, pinch to capture, then solve a 3×3 puzzle with your fingers. When you complete it, it shatters into a polaroid that gets saved to your strip. Built with zero dependencies — just vanilla JavaScript and browser APIs.</p>
+  <div class="callout">
+    <p>The puzzles are black and white while you solve them, then reveal as full colour when saved. Camera flash included. Each photo gets a polaroid border with the date and number stamped on it.</p>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<section class="red-section" id="how-to-run">
+  <div style="max-width: 860px; margin: 0 auto;">
+    <div class="section-label">Setup</div>
+    <h2>How to run it</h2>
+    <p>Takes about 2 minutes. You need VS Code and Chrome — that's it.</p>
+  </div>
+
+  <div class="steps">
+
+    <div class="step-card">
+      <div class="step-number">01</div>
+      <div class="step-content">
+        <h3>Clone the repo</h3>
+        <p>Open your terminal and run these two commands:</p>
+        <div class="code-block">git clone https://github.com/abdallahqaraqe1/puzzlecam.git<br>cd puzzlecam</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number">02</div>
+      <div class="step-content">
+        <h3>Install Live Server in VS Code</h3>
+        <p>Open the puzzlecam folder in VS Code. Then install the Live Server extension — search for it in Extensions (the squares icon on the left sidebar).</p>
+        <div class="code-block"><span class="comment">// Extension by Ritwick Dey — 79M+ downloads</span><br>Live Server</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number">03</div>
+      <div class="step-content">
+        <h3>Click Go Live</h3>
+        <p>Look at the bottom right corner of VS Code. Click <strong>Go Live</strong>. Your browser will open automatically.</p>
+        <div class="code-block">http://localhost:5500</div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-number">04</div>
+      <div class="step-content">
+        <h3>Allow camera access</h3>
+        <p>Chrome will ask for camera permission. Click Allow. The hand tracking model (~10MB) downloads on first load — needs internet once. After that it works offline.</p>
+        <div class="code-block"><span class="comment">// Recommended browsers</span><br>Chrome or Edge → best experience<br>Firefox → works<br>Safari → limited</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section class="gestures-section" id="gestures">
+  <div class="section-label">Controls</div>
+  <h2>Gesture guide</h2>
+  <p>No mouse, no keyboard. Your hands do everything.</p>
+
+  <table class="gesture-table">
+    <thead>
+      <tr>
+        <th>Gesture</th>
+        <th>What it does</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Raise both hands</td>
+        <td>Camera starts tracking — the space between your index fingertips becomes the photo frame</td>
+      </tr>
+      <tr>
+        <td>Pinch both hands together</td>
+        <td>Locks the frame and starts the 3 second countdown</td>
+      </tr>
+      <tr>
+        <td>One hand pinch over a piece</td>
+        <td>Picks up and drags that puzzle piece</td>
+      </tr>
+      <tr>
+        <td>Release the pinch near correct spot</td>
+        <td>Piece snaps into place automatically</td>
+      </tr>
+      <tr>
+        <td>Closed fist (hold)</td>
+        <td>Saves the completed puzzle / resets the board</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="divider" />
+
+<section style="background: #1a1a1a; padding: 64px 40px;" id="features">
+  <div style="max-width: 860px; margin: 0 auto;">
+    <div class="section-label" style="color: #f5c518;">What makes it different</div>
+    <h2 style="color: #EDE8DC; font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(32px, 5vw, 52px); text-transform: uppercase; line-height: 0.95; margin-bottom: 8px;">Features</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <h4>B&W → Colour reveal</h4>
+      <p>Puzzles are black and white while solving. Make a fist and they save as full colour photos.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Camera flash</h4>
+      <p>White screen flash at the moment of capture. Feels like a real photobooth.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Polaroid borders</h4>
+      <p>Each photo gets a white polaroid border with the date and number stamped at the bottom.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Sound design</h4>
+      <p>Countdown beeps, piece snap click, shatter burst, and a completion chime. All generated in code — no audio files.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Video recording</h4>
+      <p>Every solve is recorded automatically. Download it as a WebM video from the sidebar.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Strip popup</h4>
+      <p>Complete 3 puzzles and a full photo strip pops up inside the game. Download as PNG.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Vignette effect</h4>
+      <p>Subtle dark edges on every photo for that classic photobooth look.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Zero dependencies</h4>
+      <p>No React, no npm, no build step. Pure JavaScript, HTML, and CSS. Runs in one browser tab.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<section class="tag-me">
+  <h3>Check out my profile</h3>
+  <p>I would genuinely love to see your photobooth strip. Check out my GitHub profile <strong>@abdallahqaraqe1</strong> — have fun with it!</p>
+</section>
+
+<section class="cta-section">
+  <div class="section-label">Get started</div>
+  <h2>Clone it and start playing</h2>
+  <p>The full source code is on GitHub. Free to use, modify, and share. MIT licence.</p>
+  <div>
+    <a class="btn btn-red" href="https://github.com/abdallahqaraqe1/puzzlecam" target="_blank">View on GitHub →</a>
+    <a class="btn btn-outline" href="https://github.com/abdallahqaraqe1" target="_blank">@abdallahqaraqe1</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Eng. Abdallah Qaraqe — all rights reserved.</p>
+  <a href="https://github.com/abdallahqaraqe1/puzzlecam" target="_blank">github.com/abdallahqaraqe1/puzzlecam</a>
+</footer>
+
+</body>
+</html>

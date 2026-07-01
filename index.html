@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PuzzleCam — by Eng. Abdallah Qaraqe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <div id="stage">
+    <video id="webcam" playsinline autoplay muted></video>
+    <canvas id="sceneCanvas"></canvas>
+
+    <div class="hud-top">
+      <div class="brand">PUZZLE·CAM <small>by Eng. Abdallah Qaraqe</small></div>
+      <div class="status-pill">
+        <span id="statusDot" class="status-dot"></span>
+        <span id="statusText">starting camera…</span>
+      </div>
+    </div>
+
+    <div id="progressBadge" class="progress-badge">
+      <span id="progressText">0 / 9 pieces placed</span>
+    </div>
+
+    <div id="recIndicator" class="rec-indicator hidden">
+      <span class="rec-dot"></span> REC
+    </div>
+
+    <div id="loadingOverlay">
+      <div class="loader-text" id="loaderText">loading HandLandmarker model…</div>
+      <div class="loader-bar"></div>
+      <button type="button" id="loaderRetry" class="loader-retry hidden">retry</button>
+    </div>
+
+    <div id="errorBanner"></div>
+    <div id="flashOverlay"></div>
+  </div>
+
+  <aside id="gallery">
+    <div class="gallery-head">
+      <span class="gallery-title">Strip</span>
+      <span class="gallery-count" id="galleryCount">0 / 3</span>
+    </div>
+
+    <div class="strip-complete-msg" id="stripCompleteMsg">
+      strip complete — download or reset to continue
+    </div>
+
+    <div id="galleryStrip" class="gallery-strip">
+      <div class="gallery-empty" id="galleryEmpty">
+        Your completed puzzles<br/>will appear here.
+      </div>
+    </div>
+
+    <div class="gallery-actions">
+      <button type="button" id="downloadStripBtn" class="gallery-action-btn" disabled>download strip</button>
+      <button type="button" id="downloadVideoBtn" class="gallery-action-btn" disabled>download video</button>
+      <button type="button" id="resetAllBtn" class="gallery-action-btn gallery-action-btn--danger">reset all</button>
+    </div>
+  </aside>
+
+</div>
+
+<div class="copyright">© 2026 Eng. Abdallah Qaraqe — all rights reserved</div>
+
+<div id="stripModal" class="strip-modal hidden">
+  <div class="strip-modal-inner">
+    <div class="strip-modal-title">YOUR PHOTO STRIP</div>
+    <canvas id="stripPreviewCanvas"></canvas>
+    <div class="strip-modal-actions">
+      <button id="stripModalDownload" class="strip-modal-btn">download</button>
+      <button id="stripModalClose" class="strip-modal-btn strip-modal-btn--ghost">close</button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="./app.js"></script>
+</body>
+</html>
